@@ -122,7 +122,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000]
  */
-#define BAUDRATE 250000
+#define BAUDRATE 38400
 
 // Enable the Bluetooth serial interface on AT90USB devices
 //#define BLUETOOTH
@@ -253,7 +253,7 @@
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
-#define TEMP_SENSOR_BED 0
+#define TEMP_SENSOR_BED 1
 
 // Dummy thermistor constant temperature readings, for use with 998 and 999
 #define DUMMY_THERMISTOR_998_VALUE 25
@@ -486,7 +486,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 500 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 1600, 186 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -579,9 +579,9 @@
 //    |           |
 //    O-- FRONT --+
 //  (0,0)
-#define X_PROBE_OFFSET_FROM_EXTRUDER 10  // X offset: -left  +right  [of the nozzle]
-#define Y_PROBE_OFFSET_FROM_EXTRUDER 10  // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
+#define X_PROBE_OFFSET_FROM_EXTRUDER -40  // X offset: -left  +right  [of the nozzle]
+#define Y_PROBE_OFFSET_FROM_EXTRUDER 0  // Y offset: -front +behind [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -2   // Z offset: -below +above  [the nozzle]
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 8000
@@ -720,10 +720,10 @@
 // Travel limits after homing (units are in mm)
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
-#define Z_MIN_POS 0
+#define Z_MIN_POS -2
 #define X_MAX_POS 200
 #define Y_MAX_POS 200
-#define Z_MAX_POS 200
+#define Z_MAX_POS 170
 
 /**
  * Filament Runout Sensor
@@ -793,7 +793,7 @@
  *   You specify the rectangle and the density of sample points.
  *   The result is a mesh, best for large or uneven beds.
  */
-//#define AUTO_BED_LEVELING_3POINT
+#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
 //#define AUTO_BED_LEVELING_BILINEAR
 
@@ -845,12 +845,12 @@
 
   // 3 arbitrary points to probe.
   // A simple cross-product is used to estimate the plane of the bed.
-  #define ABL_PROBE_PT_1_X 15
-  #define ABL_PROBE_PT_1_Y 180
-  #define ABL_PROBE_PT_2_X 15
-  #define ABL_PROBE_PT_2_Y 20
-  #define ABL_PROBE_PT_3_X 170
-  #define ABL_PROBE_PT_3_Y 20
+  #define ABL_PROBE_PT_1_X 22
+  #define ABL_PROBE_PT_1_Y 0
+  #define ABL_PROBE_PT_2_X 159
+  #define ABL_PROBE_PT_2_Y 0
+  #define ABL_PROBE_PT_3_X 121
+  #define ABL_PROBE_PT_3_Y 191
 
 #endif
 
@@ -880,7 +880,7 @@
 // - If stepper drivers time out, it will need X and Y homing again before Z homing.
 // - Move the Z probe (or nozzle) to a defined XY point before Z Homing when homing all axes (G28).
 // - Prevent Z homing when the Z probe is outside bed area.
-//#define Z_SAFE_HOMING
+#define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT ((X_MIN_POS + X_MAX_POS) / 2)    // X point for Z homing when homing all axis (G28).
@@ -905,7 +905,7 @@
 // M501 - reads parameters from EEPROM (if you need reset them after you changed them temporarily).
 // M502 - reverts to the default "factory settings".  You still need to store them in EEPROM afterwards if you want to.
 //define this to enable EEPROM support
-//#define EEPROM_SETTINGS
+#define EEPROM_SETTINGS
 
 #if ENABLED(EEPROM_SETTINGS)
   // To disable EEPROM Serial responses and decrease program space by ~1700 byte: comment this out:
@@ -1253,7 +1253,7 @@
 //
 // Note: Usually sold with a white PCB.
 //
-//#define REPRAP_DISCOUNT_SMART_CONTROLLER
+#define REPRAP_DISCOUNT_SMART_CONTROLLER
 
 //
 // GADGETS3D G3D LCD/SD Controller
