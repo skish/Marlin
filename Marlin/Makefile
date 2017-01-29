@@ -60,15 +60,15 @@ HARDWARE_MOTHERBOARD ?= 43
 
 # Arduino source install directory, and version number
 # On most linuxes this will be /usr/share/arduino
-ARDUINO_INSTALL_DIR  ?= ~/tmp/arduino-1.8.0
+ARDUINO_INSTALL_DIR  ?= /home/ski/tmp/arduino-1.8.0
 ARDUINO_VERSION      ?= 180
 
 # You can optionally set a path to the avr-gcc tools. Requires a trailing slash. (ex: /usr/local/avr-gcc/bin)
 AVR_TOOLS_PATH ?= /usr/bin/
 
 #Programmer configuration
-UPLOAD_RATE        ?= 57600
-AVRDUDE_PROGRAMMER ?= arduino
+UPLOAD_RATE        ?= 115200
+AVRDUDE_PROGRAMMER ?= wiring
 # on most linuxes this will be /dev/ttyACM0 or /dev/ttyACM1 
 UPLOAD_PORT        ?= /dev/ttyUSB0
 
